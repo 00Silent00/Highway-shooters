@@ -8,7 +8,9 @@ public class PlayerM : MonoBehaviour
     public float speed;
     private float HorizontalInput;
     public GameObject bullet;
-    public float dmg = 2.0f;
+    public int dmg;
+    public GameObject spawner;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,15 @@ public class PlayerM : MonoBehaviour
     void shoot ()
     {
         Vector3 spawn = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        Instantiate(bullet, spawn, bullet.transform.rotation);
+        spawner = Instantiate(bullet, spawn, bullet.transform.rotation);
+        spawner.GetComponent<bullet>().dmg = dmg;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Powerup")
+        {
+            spawner.GetComponent<spawner>().dmg = dmg;
+            
+        }
     }
 }

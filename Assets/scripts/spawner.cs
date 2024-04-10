@@ -6,9 +6,11 @@ using UnityEngine.UIElements;
 
 public class spawner : MonoBehaviour
 {
-    public GameObject[] enemy;
+    public GameObject[] enemyS;
     public float health = 2.0f;
     public int teller;
+    public int dmg;
+    public GameObject enemyClone;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,10 @@ public class spawner : MonoBehaviour
     }
     void spawnEnemy()
     {
-        Instantiate(enemy[0], new Vector3(transform.position.x, 1, transform.localPosition.z), enemy[0].transform.rotation);
+        
+        enemyClone = Instantiate(enemyS[0], new Vector3(transform.position.x, Random.Range(-5, 5), transform.localPosition.z), enemyS[0].transform.rotation);
+        enemyClone.GetComponent<enemy>().hp = health;
+        enemyClone.GetComponent<enemy>().skade = dmg;
         teller++;
     }
 }
