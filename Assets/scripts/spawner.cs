@@ -29,7 +29,7 @@ public class spawner : MonoBehaviour
     void spawnEnemy()
     {
         
-        enemyClone = Instantiate(enemyS[0], new Vector3(transform.position.x, Random.Range(-5, 5), transform.localPosition.z), enemyS[0].transform.rotation);
+        enemyClone = Instantiate(enemyS[0], new Vector3(Random.Range(-5, 5), 1, transform.localPosition.z), enemyS[0].transform.rotation);
         enemyClone.GetComponent<enemy>().hp = health;
         enemyClone.GetComponent<enemy>().skade = dmg;
         teller++;
