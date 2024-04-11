@@ -9,7 +9,8 @@ public class bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PlayerM Pdmg = GameObject.Find("Player").GetComponent<PlayerM>();
+        dmg = Pdmg.dmg;
     }
 
     // Update is called once per frame

@@ -64,7 +64,7 @@ public class spawner : MonoBehaviour
 
         }else
         {
-        enemyClone = Instantiate(enemyS[Earray], new Vector3(Random.Range(-5, 5), 1, transform.localPosition.z), enemyS[0].transform.rotation);
+        enemyClone = Instantiate(enemyS[Earray], new Vector3(Random.Range(-5, 5), 1, transform.localPosition.z), transform.rotation);
         enemyClone.GetComponent<enemy>().hp = temphealth;
         }
         if (temphealth == health*1.5f)

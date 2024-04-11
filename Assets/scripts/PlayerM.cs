@@ -37,15 +37,14 @@ public class PlayerM : MonoBehaviour
     {
         Vector3 spawn = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         spawner = Instantiate(bullet, spawn, bullet.transform.rotation);
-        spawner.GetComponent<bullet>().dmg = dmg;
+        
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "powerup")
         {
-            spawner.GetComponent<spawner>().dmg += dmg;
-            Destroy(other.gameObject);
-            
+            dmg += 2;
+            Destroy(other.gameObject);           
         }
         else if (other.gameObject.tag == "enemy")
         {
