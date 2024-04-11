@@ -20,7 +20,11 @@ public class bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         {
-            Destroy(gameObject);    
+            if (other.gameObject.tag != "Player")
+            {
+                Destroy(gameObject);    
+            }
+                
         }   
     }
 }

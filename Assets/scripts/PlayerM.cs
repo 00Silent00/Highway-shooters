@@ -41,10 +41,15 @@ public class PlayerM : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Powerup")
+        if (other.gameObject.tag == "powerup")
         {
-            spawner.GetComponent<spawner>().dmg = dmg;
+            spawner.GetComponent<spawner>().dmg += dmg;
+            Destroy(other.gameObject);
             
+        }
+        else if (other.gameObject.tag == "enemy")
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2583749811070882162}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000035762784}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -1.9999917, y: 1, z: 15.250001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -150,7 +150,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   hp: 0
-  spiller: {fileID: 3171970384909620002, guid: 873c5c8d149a9eb4183918e8d03caa3f, type: 3}
-  maker: {fileID: 1074934920934208751, guid: 26d0dd4ea0357454ba32b48e4b5dfce6, type: 3}
   skade: 0
   teller: 0

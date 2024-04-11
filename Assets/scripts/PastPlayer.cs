@@ -18,8 +18,12 @@ public class PastPlayer : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag != "powerup")
+        {
+            Destroy(player);            
+        }
         Destroy(other.gameObject);
-        Destroy(player);
+
 
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -11,10 +12,13 @@ public class spawner : MonoBehaviour
     public int teller;
     public int dmg;
     public GameObject enemyClone;
+    float temphealth;
+    int Earray;
+    
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("spawnEnemy", 1.5f, 2.0f);
+        InvokeRepeating("spawnEnemy", 1.5f, 4.0f);
     }
 
     // Update is called once per frame
@@ -28,10 +32,45 @@ public class spawner : MonoBehaviour
     }
     void spawnEnemy()
     {
+        int Renemy = Random.Range(0, 4);
         
-        enemyClone = Instantiate(enemyS[0], new Vector3(Random.Range(-5, 5), 1, transform.localPosition.z), enemyS[0].transform.rotation);
-        enemyClone.GetComponent<enemy>().hp = health;
-        enemyClone.GetComponent<enemy>().skade = dmg;
+        switch(Renemy)
+        {
+        case 3:
+            Earray = 3;
+            break;
+        case 2:
+            temphealth = health * 2;
+            Earray = 2;
+            break;
+        case 1:
+            temphealth = health * 1.5f;
+            Earray = 1;
+            break;
+        default:
+            Earray = 0;
+            break;
+        }
+        if (Earray == 3)
+        {
+            
+            if (Random.Range(1, 2) == 1)
+            {
+                enemyClone = Instantiate(enemyS[Earray], new Vector3(2.5f, 1, transform.localPosition.z), enemyS[3].transform.rotation);
+            }else
+            {
+                enemyClone = Instantiate(enemyS[Earray], new Vector3(-2.5f, 1, transform.localPosition.z), enemyS[3].transform.rotation);
+            }
+
+        }else
+        {
+        enemyClone = Instantiate(enemyS[Earray], new Vector3(Random.Range(-5, 5), 1, transform.localPosition.z), enemyS[0].transform.rotation);
+        enemyClone.GetComponent<enemy>().hp = temphealth;
+        }
+        if (temphealth == health*1.5f)
+        {
+            enemyClone.transform.localScale = new Vector3(transform.localScale.x * 1.5f, transform.localScale.y * 1.5f, transform.localScale.z * 1.5f);
+        }
         teller++;
     }
 }
