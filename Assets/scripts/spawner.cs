@@ -54,7 +54,7 @@ public class spawner : MonoBehaviour
         if (Earray == 3)
         {
             
-            if (Random.Range(1, 2) == 1)
+            if (Random.Range(1, 3) == 1)
             {
                 enemyClone = Instantiate(enemyS[Earray], new Vector3(2.5f, 1, transform.localPosition.z), enemyS[3].transform.rotation);
             }else
@@ -67,7 +67,7 @@ public class spawner : MonoBehaviour
         enemyClone = Instantiate(enemyS[Earray], new Vector3(Random.Range(-5, 5), 1, transform.localPosition.z), transform.rotation);
         enemyClone.GetComponent<enemy>().hp = temphealth;
         }
-        if (temphealth == health*1.5f)
+        if (Earray == 1)
         {
             enemyClone.transform.localScale = new Vector3(transform.localScale.x * 1.5f, transform.localScale.y * 1.5f, transform.localScale.z * 1.5f);
         }
