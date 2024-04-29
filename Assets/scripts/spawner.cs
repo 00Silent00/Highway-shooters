@@ -32,22 +32,22 @@ public class spawner : MonoBehaviour
     }
     void spawnEnemy()
     {
-        int Renemy = Random.Range(0, 4);
+        int Renemy = Random.Range(0, 100);
         
         switch(Renemy)
         {
-        case 3:
+        case 76-99:
             Earray = 3;
             break;
-        case 2:
+        case 66-75:
             temphealth = health * 2;
             Earray = 2;
             break;
-        case 1:
+        case 40-65:
             temphealth = health * 1.5f;
             Earray = 1;
             break;
-        default:
+        case 0-39:
             Earray = 0;
             break;
         }
